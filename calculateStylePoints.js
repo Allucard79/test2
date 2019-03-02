@@ -1,6 +1,6 @@
 const calculateStylePoints = styleNotes => {
-    if (styleNotes.length = 5) {
-        let stylePointsOrdered = styleNotes.sort(function (a, b) {
+    if (styleNotes.length === 5) {
+        const stylePointsOrdered = styleNotes.sort(function (a, b) {
             return a - b;
         });
         const [, second, third, forth, ] = stylePointsOrdered;
