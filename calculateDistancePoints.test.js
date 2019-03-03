@@ -2,6 +2,17 @@ const assert = require('assert');
 const calculateDistancePoints = require('./calculateDistancePoints.js');
 
 describe('calculateDistancePoints', () => {
+
+    describe('hillSize', () => {
+        it('should return error', () => {
+            const actual = calculateDistancePoints(100, '', 110);
+    
+            const expected = 'Wrong data';
+    
+            assert.equal(actual, expected);
+        });
+    });
+
     describe('normal takeof', () => {
         it('should return 71', () => {
             const actual = calculateDistancePoints(103.5, 'normal', 98);
@@ -75,6 +86,40 @@ describe('calculateDistancePoints', () => {
             const actual = calculateDistancePoints(212, 'mammoth', 200);
 
             const expected = '134.4';
+
+            assert.equal(actual, expected);
+        });
+    });
+
+    describe('Wrong data', () => {
+        it('NaN distance', () => {
+            const actual = calculateDistancePoints(NaN, 1, 98);
+
+            const expected = 'Wrong data';
+
+            assert.equal(actual, expected);
+        });
+    
+        it('undefined kPoint', () => {
+            const actual = calculateDistancePoints(114.5, 2, undefined);
+
+            const expected = 'Wrong data';
+
+            assert.equal(actual, expected);
+        });
+
+        it('minus distance', () => {
+            const actual = calculateDistancePoints(-145.5, 3, 200);
+
+            const expected = 'Wrong data';
+
+            assert.equal(actual, expected);
+        });
+
+        it('distance as a string', () => {
+            const actual = calculateDistancePoints('asfasf', 3, 200);
+            
+            const expected = 'Wrong data';
 
             assert.equal(actual, expected);
         });
