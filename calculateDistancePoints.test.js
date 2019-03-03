@@ -93,7 +93,7 @@ describe('calculateDistancePoints', () => {
 
     describe('Wrong data', () => {
         it('NaN distance', () => {
-            const actual = calculateDistancePoints(NaN, 1, 98);
+            const actual = calculateDistancePoints(NaN, 'normal', 98);
 
             const expected = 'Wrong data';
 
@@ -101,7 +101,7 @@ describe('calculateDistancePoints', () => {
         });
     
         it('undefined kPoint', () => {
-            const actual = calculateDistancePoints(114.5, 2, undefined);
+            const actual = calculateDistancePoints(114.5, 'big', undefined);
 
             const expected = 'Wrong data';
 
@@ -109,7 +109,7 @@ describe('calculateDistancePoints', () => {
         });
 
         it('minus distance', () => {
-            const actual = calculateDistancePoints(-145.5, 3, 200);
+            const actual = calculateDistancePoints(-145.5, 'mammoth', 200);
 
             const expected = 'Wrong data';
 
@@ -117,7 +117,7 @@ describe('calculateDistancePoints', () => {
         });
 
         it('distance as a string', () => {
-            const actual = calculateDistancePoints('asfasf', 3, 200);
+            const actual = calculateDistancePoints('asfasf', 'mammoth', 200);
             
             const expected = 'Wrong data';
 
